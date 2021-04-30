@@ -1,0 +1,22 @@
+server:
+  port: 8888
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/bookstore?characterEncoding=utf-8&useSSL=false&useTimezone=true&useAffectedRows=true&serverTimezone=GMT%2B8
+    username: root
+    password: root
+
+#logging:
+#  config: classpath:logback-spring.xml
+#  file:
+#    path: D:/book/logs
+
+#  jpa:
+#    properties:
+#      hibernate:
+#        hbm2ddl:
+#          auto: update
+#        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+#        format_sql: true
+#    show-sql: true
