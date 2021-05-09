@@ -11,12 +11,3 @@ spring:
 #  config: classpath:logback-spring.xml
 #  file:
 #    path: D:/book/logs
-
-#  jpa:
-#    properties:
-#      hibernate:
-#        hbm2ddl:
-#          auto: update
-#        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-#        format_sql: true
-#    show-sql: true

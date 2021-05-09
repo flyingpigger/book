@@ -23,6 +23,22 @@ implements AddressService{
     public List<Address> selectAllByUserID(Integer uid) {
         return addressMapper.selectAllByUserID(uid);
     }
+
+    @Override
+    public boolean updateById(Address entity) {
+        if (entity.getIsDefault()) {
+            addressMapper.setFalse(entity.getUid());
+        }
+        int result = addressMapper.updateById(entity);
+        return result == 1;
+    }
+
+    @Override
+    public Address getByUid(int uid) {
+        return addressMapper.getByUid(uid);
+    }
+
+
 }
 
 

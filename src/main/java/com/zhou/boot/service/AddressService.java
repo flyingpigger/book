@@ -12,4 +12,9 @@ public interface AddressService extends IService<Address> {
 
     List<Address> selectAllByUserID(Integer uid);
 
+    @Override
+    boolean updateById(Address entity);
+
+    Address getByUid(int uid);
+
 }

@@ -27,39 +27,29 @@ public class Orders implements Serializable {
     private Integer uid;
 
     /**
-     * 书籍ID
-     */
-    private Integer bid;
-
-    /**
      * 书籍名称
      */
-    private String bookName;
-
-    /**
-     * 价格
-     */
-    private BigDecimal price;
-
-    /**
-     * 数量
-     */
-    private Integer amount;
+    private String bookList;
 
     /**
      * 总价
      */
-    private BigDecimal total;
+    private BigDecimal totalPrice;
 
     /**
      * 是否发货，1为发货，0为未发货
      */
-    private Integer isDelivered;
+    private Boolean isDelivered;
+
+    /**
+     * 是否支付，1为支付，0为未支付
+     */
+    private Boolean isPaid;
 
     /**
      * 是否收货，1为收货，0为未收货
      */
-    private Integer isReceived;
+    private Boolean isReceived;
 
     /**
      * 地址
@@ -69,12 +59,17 @@ public class Orders implements Serializable {
     /**
      * 电话号码
      */
-    private String phone;
+    private String tel;
 
     /**
      * 收货人
      */
-    private String consignee;
+    private String name;
+
+    /**
+     * 日期
+     */
+    private String date;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

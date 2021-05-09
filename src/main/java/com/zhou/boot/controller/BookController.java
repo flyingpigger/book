@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @Slf4j
 @RestController
 public class BookController {
@@ -30,9 +31,12 @@ public class BookController {
     }
 
     @ResponseBody
-    @RequestMapping("/allBooks")
-    public List<Book> getAllBooks() {
-        return bookService.list();
+    @RequestMapping("/allBooks/{page}")
+    public List<Book> getAllBooks(@PathVariable("page") Integer page) {
+        Page<Book> bookPage = new Page<>(page, 10);
+        Page<Book> page1 = bookService.page(bookPage);
+
+        return page1.getRecords();
     }
 
     @ResponseBody

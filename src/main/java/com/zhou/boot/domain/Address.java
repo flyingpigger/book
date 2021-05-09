@@ -53,12 +53,12 @@ public class Address implements Serializable {
     /**
      * 邮政编码
      */
-    private Integer postalCode;
+    private String postalCode;
 
     /**
      * 地区编码，通过 省市区选择 获取
      */
-    private Integer areaCode;
+    private String areaCode;
 
     /**
      * 收货人手机号

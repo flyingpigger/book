@@ -37,11 +37,6 @@ public class Book implements Serializable {
     private BigDecimal price;
 
     /**
-     * 
-     */
-    private Integer sales;
-
-    /**
      * 类型
      */
     private String type;

@@ -15,19 +15,20 @@ public class MyConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/banner/**").addResourceLocations("file:D:/book/banner/");
     }
 
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        //设置允许跨域的路径
-        registry.addMapping("/**")
-                //设置允许跨域请求的域名
-                .allowedOrigins("http://localhost:8080")
-                //是否允许证书 不再默认开启
-                .allowCredentials(true)
-                //设置允许的方法
-                .allowedMethods("*")
-                //跨域允许时间
-                .maxAge(3600);
-    }
-
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        //设置允许跨域的路径
+//        registry.addMapping("/**")
+//                //设置允许跨域请求的域名
+//                .allowedOrigins("http://localhost:8080")
+////                .allowedOrigins("http://localhost:8081")
+////                .allowedOrigins("http://192.168.1.104:8080")
+//                //是否允许证书 不再默认开启
+//                .allowCredentials(true)
+//                //设置允许的方法
+//                .allowedMethods("*")
+//                //跨域允许时间
+//                .maxAge(3600);
+//    }
 
 }

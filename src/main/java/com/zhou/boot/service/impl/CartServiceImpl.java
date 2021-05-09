@@ -26,8 +26,14 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart>
     }
 
     @Override
-    public boolean addCount(int bid) {
-        int result = cartMapper.addCount(bid);
+    public boolean addCount(int bid, int uid) {
+        int result = cartMapper.addCount(bid, uid);
+        return result == 1;
+    }
+
+    @Override
+    public boolean minusCount(int bid, int uid) {
+        int result = cartMapper.minusCount(bid, uid);
         return result == 1;
     }
 
@@ -38,15 +44,21 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart>
     }
 
     @Override
-    public boolean setChecked(int bid, boolean checked) {
-        int result = cartMapper.setChecked(bid, checked);
+    public boolean deleteItem(int bid, int uid) {
+        int result = cartMapper.deleteItem(bid, uid);
+        return result == 1;
+    }
+
+    @Override
+    public boolean setChecked(int bid, boolean checked, int uid) {
+        int result = cartMapper.setChecked(bid, checked, uid);
         return result == 1;
     }
 
     @Override
     public boolean setAllChecked(int uid, boolean checked) {
         int result = cartMapper.setAllChecked(uid, checked);
-        return result == 1;
+        return result >= 1;
     }
 }
 

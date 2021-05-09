@@ -1,15 +1,14 @@
 package com.zhou.boot.controller;
 
+import com.zhou.boot.api.CommonResult;
 import com.zhou.boot.domain.Address;
 import com.zhou.boot.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
+@CrossOrigin
 @RestController
 public class AddressController {
 
@@ -17,9 +16,48 @@ public class AddressController {
     AddressService addressService;
 
     @ResponseBody
-    @PostMapping("/profile/address")
-    public void postAddress(@RequestBody Address address, HttpServletRequest request) {
-        addressService.save(address);
+    @GetMapping("/profile/addressList")
+    public List<Address> getAddress(@RequestParam(value = "uid", defaultValue = "") int uid) {
+        return addressService.selectAllByUserID(uid);
+    }
+
+    @ResponseBody
+    @PostMapping("/profile/addAddress")
+    public CommonResult addAddress(@RequestBody Address address) {
+        boolean result = addressService.save(address);
+        if (result) {
+            return CommonResult.success("success");
+        } else {
+            return CommonResult.failed("failed");
+        }
+    }
+
+    @ResponseBody
+    @PutMapping("/profile/editAddress")
+    public CommonResult editAddress(@RequestBody Address address) {
+        boolean result = addressService.updateById(address);
+        if (result) {
+            return CommonResult.success("success");
+        } else {
+            return CommonResult.failed("failed");
+        }
+    }
+
+    @ResponseBody
+    @DeleteMapping("/profile/deleteAddress")
+    public CommonResult deleteAddress(@RequestBody Address address) {
+        boolean result = addressService.removeById(address);
+        if (result) {
+            return CommonResult.success("success");
+        } else {
+            return CommonResult.failed("failed");
+        }
+    }
+
+    @ResponseBody
+    @GetMapping("/defaultAddress")
+    public Address getDefaultAddress(@RequestParam(value = "uid", defaultValue = "") int uid) {
+        return addressService.getByUid(uid);
     }
 
 }

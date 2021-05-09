@@ -13,8 +13,10 @@ public interface CartService extends IService<Cart> {
 
     List<CartInfo> selectAllByUserID(Integer uid);
 
-    boolean addCount(int bid);
+    boolean addCount(int bid, int uid);
+    boolean minusCount(int bid, int uid);
     boolean addItem(int bid, int uid);
-    boolean setChecked(int bid, boolean checked);
+    boolean deleteItem(int bid, int uid);
+    boolean setChecked(int bid, boolean checked, int uid);
     boolean setAllChecked(int uid, boolean checked);
 }
