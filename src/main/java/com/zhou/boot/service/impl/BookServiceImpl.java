@@ -9,6 +9,8 @@ import com.zhou.boot.mapper.BookMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  *
  */
@@ -17,7 +19,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book>
 implements BookService{
 
     @Autowired
-    private BookMapper mapper;
+    private BookMapper bookMapper;
 
     @Override
     public IPage<Book> selectBookByTypePage(Page<Book> page, String type) {
@@ -25,7 +27,12 @@ implements BookService{
         // page.setOptimizeCountSql(false);
         // 当 total 为小于 0 或者设置 setSearchCount(false) 分页插件不会进行 count 查询
         // 要点!! 分页返回的对象与传入的对象是同一个
-        return mapper.selectPageVo(page, type);
+        return bookMapper.selectPageVo(page, type);
+    }
+
+    @Override
+    public List<Book> searchBook(String keyWord) {
+        return bookMapper.searchBook(keyWord);
     }
 
 }

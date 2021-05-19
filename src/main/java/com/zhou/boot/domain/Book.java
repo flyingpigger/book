@@ -1,5 +1,6 @@
 package com.zhou.boot.domain;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -19,6 +20,7 @@ public class Book implements Serializable {
      * 
      */
     @TableId(type = IdType.AUTO)
+    @JSONField(name = "bid")
     private Integer id;
 
     /**
@@ -61,6 +63,7 @@ public class Book implements Serializable {
      */
     private String publisher;
 
+
     /**
      * 出版日期
      */
@@ -68,4 +71,5 @@ public class Book implements Serializable {
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
+
 }

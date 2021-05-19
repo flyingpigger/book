@@ -12,6 +12,9 @@ import java.util.List;
  */
 public interface OrdersMapper extends BaseMapper<Orders> {
 
+    @Select("SELECT * FROM orders")
+    List<Orders> listAll();
+
     @Select("SELECT * FROM orders WHERE uid=#{uid}")
     List<Orders> listByUid(Integer uid);
 

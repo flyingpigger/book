@@ -3,12 +3,16 @@ package com.zhou.boot.mapper;
 import com.zhou.boot.domain.Cart;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.zhou.boot.domain.CartInfo;
+import com.zhou.boot.domain.Orders;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 @Mapper
 public interface CartMapper extends BaseMapper<Cart> {
+
+    @Select("SELECT * FROM cart")
+    List<Cart> listAll();
 
     @Select("SELECT uid,bid,count,checked,title,img_url,price,description " +
             "FROM cart,book " +
